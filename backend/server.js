@@ -1,10 +1,15 @@
 import express from 'express';
+
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // import mongoose from 'mongoose';
 // mongoose.connect('mongodb://localhost:27017/recipes');
 
-const PORT = 5000;
+// routes
+import characterRouter from './routes/routes.js';
+app.use('/api/', characterRouter);
+const PORT = 5005;
 
 // const recipeSchema = new mongoose.Schema({
 //     name: {
