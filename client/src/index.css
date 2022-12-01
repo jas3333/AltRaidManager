@@ -6,6 +6,11 @@
 }
 
 :root {
+    /* Colors */
+
+    --neon-red: #b3243a;
+    --dark-red: #330a11;
+
     --bg-main: #292b31;
     --background-dark: #1f2025;
     --fc-light: #d1d3d7;
@@ -65,6 +70,10 @@ li {
 
 .icon {
     font-size: 1.6rem;
+}
+
+.strike {
+    text-decoration: line-through;
 }
 
 /* ╭────────────────────────────╮ */
@@ -205,9 +214,20 @@ a:hover {
 /* ╭────────────────────────────╮ */
 /* │ Decorations                │ */
 /* ╰────────────────────────────╯ */
+
+.pointer {
+    cursor: pointer;
+}
+
 .border {
     border: solid 1px var(--fc-light);
-    border-radius: 10px;
+}
+
+.border-dark-red {
+    border: solid 1px var(--dark-red);
+}
+.border-neon-red {
+    border: solid 1px var(--neon-red);
 }
 
 .radius-sm {

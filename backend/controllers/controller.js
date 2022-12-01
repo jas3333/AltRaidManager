@@ -1,7 +1,18 @@
+import mongoose from 'mongoose';
+import Characters from '../models/characters.js';
 import Raids from '../models/raids.js';
 
+mongoose.connect('mongodb://localhost:27017/characterDB');
+
 const addCharacter = async (req, res) => {
-    console.log(req.body);
+    const newCharacter = new Characters(req.body);
+    newCharacter.save((error) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(`Saving ${newCharacter}`);
+        }
+    });
 };
 
 const removeCharacter = async (req, res) => {
@@ -10,8 +21,13 @@ const removeCharacter = async (req, res) => {
 };
 
 const sendCharacter = async (req, res) => {
-    res.send('Sending character data');
-    console.log('Sending character data');
+    Characters.find({}, (error, characters) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.send(characters);
+        }
+    });
 };
 
 const updateCharacter = async (req, res) => {

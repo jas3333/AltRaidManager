@@ -13,28 +13,33 @@ const AddCharacter = () => {
         console.log(response);
     };
 
-    const handleChange = (event, index) => {
+    const handleChange = (event) => {
         if (event.target.checked) {
-            setSelectedRaids([...selectedRaids, event.target.value]);
+            setSelectedRaids([...selectedRaids, { name: event.target.value, status: true }]);
         } else {
             setSelectedRaids(selectedRaids.filter((item) => item !== event.target.value));
         }
     };
 
-    useEffect(() => {
-        getRaids();
-    }, []);
+    // useEffect(() => {
+    //     getRaids();
+    // }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         const newCharacter = { name: character, raids: selectedRaids };
 
-        const res = axios.post('http://localhost:5005/api/addCharacter', newCharacter);
+        try {
+            const response = await axios.post('http://localhost:5005/api/addCharacter', newCharacter);
+            console.log('Sending new character data...');
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
-        <div className='container border mg-top-vlg auto'>
+        <div className='container mg-top-vlg auto border radius-md pad-lg '>
             <form className='container-col pad-lg' onSubmit={handleSubmit}>
                 <label className='mg-bot-sm'>Character name</label>
 
@@ -67,7 +72,7 @@ const AddCharacter = () => {
                     );
                 })}
 
-                <button type='submit' className='btn full btn-h-md'>
+                <button type='submit' className='btn full btn-h-md mg-top-md'>
                     Add
                 </button>
             </form>

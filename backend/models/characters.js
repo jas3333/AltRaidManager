@@ -5,7 +5,18 @@ const CharacterSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Must provide character name.'],
     },
-    raids: [],
+    raids: [
+        {
+            name: {
+                type: String,
+                required: [true, 'Must have a name'],
+            },
+            status: {
+                type: Boolean,
+                required: [true, 'Must have a status'],
+            },
+        },
+    ],
 });
 
 export default mongoose.model('Character', CharacterSchema);
