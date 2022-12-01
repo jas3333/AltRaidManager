@@ -1,6 +1,7 @@
+import Raids from '../models/raids.js';
+
 const addCharacter = async (req, res) => {
-    res.send('Add Character');
-    console.log('Adding character');
+    console.log(req.body);
 };
 
 const removeCharacter = async (req, res) => {
@@ -18,4 +19,15 @@ const updateCharacter = async (req, res) => {
     console.log('Updating character');
 };
 
-export { addCharacter, removeCharacter, sendCharacter, updateCharacter };
+const addRaid = async (req, res) => {
+    console.log(req.body);
+};
+
+const sendRaids = async (req, res) => {
+    console.log('Sending raids');
+    Raids.find({}, (error, foundRaids) => {
+        if (error) console.log(error);
+        else res.send(foundRaids);
+    });
+};
+export { addCharacter, removeCharacter, sendCharacter, updateCharacter, addRaid, sendRaids };
