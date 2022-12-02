@@ -8,6 +8,7 @@ import {
     updateCharacter,
     addRaid,
     sendRaids,
+    updateRaid,
 } from '../controllers/controller.js';
 
 router.route('/removeCharacter').delete(removeCharacter);
@@ -16,4 +17,6 @@ router.route('/updateCharacter').post(updateCharacter);
 router.route('/sendCharacter').get(sendCharacter);
 router.route('/addRaid').post(addRaid);
 router.route('/sendRaid').get(sendRaids);
+router.route('/updateRaidStatus').put(updateRaid);
+
 export default router;

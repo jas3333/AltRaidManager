@@ -74,6 +74,7 @@ li {
 
 .strike {
     text-decoration: line-through;
+    color: var(--color-blend);
 }
 
 /* ╭────────────────────────────╮ */
@@ -314,7 +315,7 @@ a:hover {
 }
 
 .auto {
-    margin: auto;
+    margin: 0 auto;
 }
 
 .space {
@@ -419,7 +420,7 @@ a:hover {
 /* ╰────────────────────────────╯ */
 
 .size-sm {
-    width: 200px;
+    width: 300px;
 }
 .size-md {
     width: 450px;

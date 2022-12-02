@@ -30,6 +30,17 @@ const sendCharacter = async (req, res) => {
     });
 };
 
+const updateRaid = async (req, res) => {
+    const { name, raids } = req.body;
+    Characters.replaceOne({ name: name }, { name: name, raids: raids }, (error) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Updated raid status');
+        }
+    });
+};
+
 const updateCharacter = async (req, res) => {
     res.send('Updating character');
     console.log('Updating character');
@@ -46,4 +57,4 @@ const sendRaids = async (req, res) => {
         else res.send(foundRaids);
     });
 };
-export { addCharacter, removeCharacter, sendCharacter, updateCharacter, addRaid, sendRaids };
+export { addCharacter, removeCharacter, sendCharacter, updateCharacter, addRaid, sendRaids, updateRaid };
