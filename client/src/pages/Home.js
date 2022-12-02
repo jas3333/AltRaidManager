@@ -7,9 +7,8 @@ const Home = () => {
 
     const getCharacters = useCallback(async () => {
         try {
-            const { data } = await axios.get('http://localhost:5005/api/sendCharacter');
+            const { data } = await axios.get('http://10.0.0.49:5005/api/sendCharacter');
             setCharacters(data);
-            console.log('Setting characters');
         } catch (error) {
             console.log(error);
         }

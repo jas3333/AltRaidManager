@@ -6,7 +6,7 @@ const Settings = () => {
     const [raid, setRaid] = useState('');
 
     const getRaids = async () => {
-        const response = await axios.get('http://localhost:5005/api/sendRaid');
+        const response = await axios.get('http://10.0.0.49:5005/api/sendRaid');
         console.log(response);
     };
 
@@ -16,7 +16,7 @@ const Settings = () => {
         const newRaid = [...raidList, raid];
         setRaid('');
 
-        const response = await axios.post('http://localhost:5005/api/addRaid', newRaid);
+        const response = await axios.post('http://10.0.0.49:5005/api/addRaid', newRaid);
     };
 
     useEffect(() => {

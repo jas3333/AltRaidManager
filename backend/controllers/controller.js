@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import Characters from '../models/characters.js';
 import Raids from '../models/raids.js';
 
-mongoose.connect('mongodb://localhost:27017/characterDB');
+mongoose.connect(`${process.env.MONGODB}/characterDB`);
 
 const addCharacter = async (req, res) => {
     const newCharacter = new Characters(req.body);

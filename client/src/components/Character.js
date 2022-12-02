@@ -15,7 +15,7 @@ const Character = ({ name, raids }) => {
         );
         const updatedRaid = { name: name, raids: raidList };
 
-        const response = await axios.put('http://localhost:5005/api/updateRaidStatus', updatedRaid);
+        const response = await axios.put('http://10.0.0.49:5005/api/updateRaidStatus', updatedRaid);
     };
 
     return (

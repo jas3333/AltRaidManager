@@ -9,7 +9,7 @@ const AddCharacter = () => {
     const [selectedRaids, setSelectedRaids] = useState([]);
 
     const getRaids = async () => {
-        const response = await axios.get('http://localhost:5005/api/sendRaid');
+        const response = await axios.get('http://10.0.0.49:5005/api/sendRaid');
         console.log(response);
     };
 
@@ -31,7 +31,7 @@ const AddCharacter = () => {
         const newCharacter = { name: character, raids: selectedRaids };
 
         try {
-            const response = await axios.post('http://localhost:5005/api/addCharacter', newCharacter);
+            const response = await axios.post('http://10.0.0.49:5005/api/addCharacter', newCharacter);
             console.log('Sending new character data...');
         } catch (error) {
             console.log(error);
